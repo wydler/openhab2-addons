@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="sonnenbatterie"
+						  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+						  xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+						  xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+	<!--sonnenBatterie Thing Type-->
+	<thing-type id="eco">
+		<label>sonnenBatterie eco</label>
+		<description>sonnenBatterie eco Binding</description>
+
+		<channels>
+			<channel typeId="soc" id="soc"></channel>
+			<channel id="charge" typeId="charge"></channel>
+			<channel typeId="production" id="production"></channel>
+			<channel typeId="consumption" id="consumption"></channel>
+			<channel typeId="gridfeedin" id="gridfeedin"></channel>
+		</channels>
+		<config-description>
+			<parameter name="ip" type="text">
+				<required>true</required>
+				<default></default>
+				<label>IP</label></parameter>
+			<parameter name="refreshInterval" type="integer">
+				<label>Refresh Interval</label>
+				<description>States how often a refresh shall occur (in ms)</description>
+				<default>60</default></parameter></config-description>
+	</thing-type>
+
+	<!-- Sample Channel Type --><channel-type id="soc">
+		<item-type>Number</item-type>
+		<label>State Of Charge</label>
+		<state readOnly="true" pattern="%d %%"></state>
+</channel-type>
+	<channel-type id="charge">
+		<item-type>Number</item-type>
+		<label>Charge</label>
+		<state readOnly="true" pattern="%d W"></state>
+	</channel-type>
+	<channel-type id="production">
+		<item-type>Number</item-type>
+		<label>Production</label>
+		<state readOnly="true" pattern="%d W"></state>
+	</channel-type>
+	<channel-type id="consumption">
+		<item-type>Number</item-type>
+		<label>Consumption</label>
+		<state readOnly="true" pattern="%d W"></state>
+	</channel-type>
+	<channel-type id="gridfeedin">
+		<item-type>Number</item-type>
+		<label>Grid Feed-In</label>
+		<state readOnly="true" pattern="%d W"></state>
+	</channel-type>
+
+</thing:thing-descriptions>
